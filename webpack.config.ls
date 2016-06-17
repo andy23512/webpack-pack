@@ -7,7 +7,7 @@ opt =
 
 # ref: https://webpack.github.io/docs/configuration.html
 module.exports =
-  dev-server: # ref: https://webpack.github.io/docs/webpack-dev-server.html#content-base
+  dev-server: # ref: https://webpack.github.io/docs/webpack-dev-server.html
     # content-base: folder that dev-server serve the file from 
     content-base: \dist
     # host setting
@@ -32,10 +32,12 @@ module.exports =
     path: __dirname + \/dist # output path
     public-path: "http://#{opt.host}:#{opt.port}/"
   plugins: # Additional plugins. ref: https://github.com/webpack/docs/wiki/list-of-plugins
-    * new webpack.optimize.OccurenceOrderPlugin! #!
+    # optimize ids of modules https://github.com/webpack/docs/wiki/optimization
+    * new webpack.optimize.OccurenceOrderPlugin!
     # Enables Hot Module Replacement
     * new webpack.HotModuleReplacementPlugin!
-    * new webpack.NoErrorsPlugin! #!
+    # Stop compilation when there's any error or warning
+    * new webpack.NoErrorsPlugin!
     # Automatically loaded modules. The keys are as variables corresponding to the modules.
     * new webpack.Provide-plugin $: \jquery jQuery: \jquery app: \app.ls moment: \moment React: \react
     # Generate simple html file. ref: https://www.npmjs.com/package/html-webpack-plugin
