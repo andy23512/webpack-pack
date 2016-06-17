@@ -37,7 +37,7 @@ module.exports =
     * new webpack.HotModuleReplacementPlugin!
     * new webpack.NoErrorsPlugin! #!
     # Automatically loaded modules. The keys are as variables corresponding to the modules.
-    * new webpack.Provide-plugin $: \jquery jQuery: \jquery app: \app.ls moment: \moment React: \react s: \semantic-ui
+    * new webpack.Provide-plugin $: \jquery jQuery: \jquery app: \app.ls moment: \moment React: \react
     # Generate simple html file. ref: https://www.npmjs.com/package/html-webpack-plugin
     * new html-webpack-plugin do
         # favicon: \app/res/image/favicon.ico
@@ -55,7 +55,6 @@ module.exports =
       moment: \moment/moment.js
       react: \react/dist/react.min.js
       react-dom: \react-dom/dist/react-dom.js
-      semantic-ui: \semantic-ui/dist/semantic-ui.js
     modules-directories: <[app node_modules]> # directories that webpack search for modules
   stylus: # stylus loader config. ref: https://github.com/shama/stylus-loader
     import: <[~nib/lib/nib/index.styl]>
