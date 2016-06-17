@@ -9,7 +9,6 @@ require './index.pug'
 
 # our js code
 $ document .ready ->
-  console.log \nanoha
-  console.log \fate
+  console.log 'It works'
 
 # vi:et:nowrap:sw=2:ts=2
