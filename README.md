@@ -27,9 +27,12 @@ Some explaination or references are shown in comments above the corresponding se
   * npm i
 
 # command
+
 ## run express + webpack middlewares
   * npm start
+
 ## run webpack-dev-tool
   * npm run dev # if you don't want to invoke gulp (pure front-end)
+
 ## build bundle files to disk
   * npm run build
