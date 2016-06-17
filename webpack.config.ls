@@ -1,10 +1,10 @@
 require! <[fs html-webpack-plugin nib webpack bower-webpack-plugin]>
 
-opt = {
-    host: (fs.read-file-sync \option/host encoding: \utf8) - \\n
-    dev-port: parseInt fs.read-file-sync \option/dev-port encoding: \utf8
-    port: parseInt fs.read-file-sync \option/port encoding: \utf8
-}
+# read opt
+opt =
+  host: (fs.read-file-sync \option/host encoding: \utf8) - \\n
+  port: parseInt fs.read-file-sync \option/port encoding: \utf8
+
 # ref: https://webpack.github.io/docs/configuration.html
 module.exports =
   dev-server: # ref: https://webpack.github.io/docs/webpack-dev-server.html#content-base
@@ -45,8 +45,6 @@ module.exports =
         inject: \body
         # template: path to template
         template: \app/index.pug
-        # title: title in html
-        title: 'Molecular Biomedical Informatics / 分子生醫資訊實驗室'
     * new bower-webpack-plugin do
         searchResolveModulesDirectories: false
   resolve: # options for resolving module

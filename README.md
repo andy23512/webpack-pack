@@ -22,8 +22,7 @@ Some explaination or references are shown in comments above the corresponding se
   * mkdir option/
   * cd option/
   * echo [your port number] > port
-  * echo [your dev-port number] > dev-port
-  * echo [your host] > host
+  * echo [your host name or ip] > host
   * cd ..
   * npm i
 
