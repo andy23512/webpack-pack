@@ -18,6 +18,7 @@ module.exports =
     port: opt.port
   # entry: entry point of the bundle
   entry: <[./app/app.ls]>
+  # context: base directories for entry
   context: __dirname
   module:
     loaders: # https://webpack.github.io/docs/configuration.html#module-loaders
@@ -32,7 +33,7 @@ module.exports =
   output:
     filename: \app.js # output single js file
     path: __dirname + \/dist # output path
-    public-path: "http://#{opt.host}:#{opt.port}/"
+    public-path: "http://#{opt.host}:#{opt.port}/" # required when used with express, ref: https://webpack.github.io/docs/webpack-dev-server.html#combining-with-an-existing-server 
   plugins: # Additional plugins. ref: https://github.com/webpack/docs/wiki/list-of-plugins
     # optimize ids of modules https://github.com/webpack/docs/wiki/optimization
     * new webpack.optimize.OccurenceOrderPlugin!
@@ -42,13 +43,14 @@ module.exports =
     * new webpack.NoErrorsPlugin!
     # Automatically loaded modules. The keys are as variables corresponding to the modules.
     * new webpack.Provide-plugin $: \jquery jQuery: \jquery app: \app.ls moment: \moment React: \react
-    # Generate simple html file. ref: https://www.npmjs.com/package/html-webpack-plugin
+    # Generate html file. ref: https://www.npmjs.com/package/html-webpack-plugin
     * new html-webpack-plugin do
         # favicon: \app/res/image/favicon.ico
         # inject: place to inject all assets
         inject: \body
         # template: path to template
         template: \app/index.pug
+    # use module from bower
     * new bower-webpack-plugin do
         searchResolveModulesDirectories: false
   resolve: # options for resolving module
