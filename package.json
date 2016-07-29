@@ -1,11 +1,10 @@
 {
   "name": "webpack-pack",
   "scripts": {
-    "postinstall": "node_modules/.bin/bower i",
-    "build": "./node_modules/.bin/webpack -p",
-    "dev": "./node_modules/.bin/webpack-dev-server --hot --port \"$(cat option/port)\" --host \"$(cat option/host)\"",
-    "start": "./node_modules/.bin/gulp --require livescript server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack -p",
+    "dev": "webpack-dev-server",
+    "postinstall": "bower i",
+    "start": "gulp server"
   },
   "dependencies": {
     "babel-core": "^5.8.33",

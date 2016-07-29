@@ -8,12 +8,14 @@ opt =
 # ref: https://webpack.github.io/docs/configuration.html
 module.exports =
   dev-server: # ref: https://webpack.github.io/docs/webpack-dev-server.html
-    # content-base: folder that dev-server serve the file from 
+    # content-base: folder that dev-server serve the file from
     content-base: \dist
     # host setting
     host: \0.0.0.0
     # inline mode (watch and build)
     inline: true
+    hot: true
+    port: opt.port
   # entry: entry point of the bundle
   entry: <[./app/app.ls]>
   context: __dirname
