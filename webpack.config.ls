@@ -1,4 +1,4 @@
-require! <[fs html-webpack-plugin nib webpack bower-webpack-plugin]>
+require! <[fs html-webpack-plugin nib webpack]>
 
 # read opt
 opt =
