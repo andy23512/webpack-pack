@@ -23,7 +23,6 @@ module.exports =
   module:
     loaders: # https://webpack.github.io/docs/configuration.html#module-loaders
       * test: /\.(jade|pug)$/ loader: \jade # test: match files, loader: applied loader to the matched files
-      * test: /\.json$/ loader: \json
       * test: /\.jsx?$/ exclude: /\/node_modules\// loader: \babel
       * test: /\.ls$/ loader: \livescript
       * test: /\/res\/image\// loader: \url?limit=10000
@@ -42,7 +41,7 @@ module.exports =
     # Stop compilation when there's any error or warning
     * new webpack.NoErrorsPlugin!
     # Automatically loaded modules. The keys are as variables corresponding to the modules.
-    * new webpack.Provide-plugin $: \jquery jQuery: \jquery app: \app.ls moment: \moment React: \react
+    * new webpack.Provide-plugin $: \jquery jQuery: \jquery app: \app.ls
     # Generate html file. ref: https://www.npmjs.com/package/html-webpack-plugin
     * new html-webpack-plugin do
         # favicon: \app/res/image/favicon.ico
@@ -50,15 +49,9 @@ module.exports =
         inject: \body
         # template: path to template
         template: \app/index.pug
-    # use module from bower
-    * new bower-webpack-plugin do
-        searchResolveModulesDirectories: false
   resolve: # options for resolving module
     alias: # module alias
       jquery: \jquery/dist/jquery.min.js
-      moment: \moment/moment.js
-      react: \react/dist/react.min.js
-      react-dom: \react-dom/dist/react-dom.js
     modules-directories: <[app node_modules]> # directories that webpack search for modules
   stylus: # stylus loader config. ref: https://github.com/shama/stylus-loader
     import: <[~nib/lib/nib/index.styl]>

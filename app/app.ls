@@ -1,5 +1,4 @@
 # modules
-require 'reset-css/reset.css'
 require 'semantic-ui/dist/semantic.min.js'
 require 'semantic-ui/dist/semantic.min.css'
 
