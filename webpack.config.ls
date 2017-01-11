@@ -32,7 +32,7 @@ module.exports =
   output:
     filename: \app.js # output single js file
     path: __dirname + \/dist # output path
-    public-path: "http://#{opt.host}:#{opt.port}/" # required when used with express, ref: https://webpack.github.io/docs/webpack-dev-server.html#combining-with-an-existing-server 
+    public-path: "//#{opt.host}:#{opt.port}/" # required when used with express, ref: https://webpack.github.io/docs/webpack-dev-server.html#combining-with-an-existing-server 
   plugins: # Additional plugins. ref: https://github.com/webpack/docs/wiki/list-of-plugins
     # optimize ids of modules https://github.com/webpack/docs/wiki/optimization
     * new webpack.optimize.OccurenceOrderPlugin!
