@@ -5,9 +5,9 @@ opt =
   host: (fs.read-file-sync \option/host encoding: \utf8) - \\n
   port: parseInt fs.read-file-sync \option/port encoding: \utf8
 
-# ref: https://webpack.github.io/docs/configuration.html
+# ref: https://webpack.js.org/configuration/
 module.exports =
-  dev-server: # ref: https://webpack.github.io/docs/webpack-dev-server.html
+  dev-server: # ref: https://webpack.js.org/configuration/dev-server/
     # content-base: folder that dev-server serve the file from
     content-base: \dist
     # host setting
