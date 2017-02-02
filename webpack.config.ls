@@ -21,25 +21,23 @@ module.exports =
   # context: base directories for entry
   context: __dirname
   module:
-    loaders: # https://webpack.github.io/docs/configuration.html#module-loaders
-      * test: /\.(jade|pug)$/ loader: \jade # test: match files, loader: applied loader to the matched files
-      * test: /\.jsx?$/ exclude: /\/node_modules\// loader: \babel
-      * test: /\.ls$/ loader: \livescript
-      * test: /\/res\/image\// loader: \url?limit=10000
-      * test: /\.styl$/ loader: \style!css!stylus
-      * test: /\.css$/ loader: \style!css
-      * test: /\.(eot|ico|jpg|mp3|svg|ttf|woff2|woff|png?)($|\?)/ loader: \file
+    rules: # https://webpack.js.org/configuration/module/#module-rules
+      * test: /\.(jade|pug)$/ use: \pug-loader # test: match files, use: applied loader to the matched files
+      * test: /\.jsx?$/ exclude: /\/node_modules\// use: \babel-loader
+      * test: /\.ls$/ use: \livescript-loader
+      * test: /\/res\/image\// use: loader: \url-loader options: limit: 10000
+      * test: /\.styl$/ use: <[style-loader css-loader stylus-loader]>
+      * test: /\.css$/ use: <[style-loader css-loader]>
+      * test: /\.(eot|ico|jpg|mp3|svg|ttf|woff2|woff|png?)($|\?)/ use: \file-loader
   output:
     filename: \app.js # output single js file
     path: __dirname + \/dist # output path
-    public-path: "//#{opt.host}:#{opt.port}/" # required when used with express, ref: https://webpack.github.io/docs/webpack-dev-server.html#combining-with-an-existing-server 
-  plugins: # Additional plugins. ref: https://github.com/webpack/docs/wiki/list-of-plugins
-    # optimize ids of modules https://github.com/webpack/docs/wiki/optimization
-    * new webpack.optimize.OccurenceOrderPlugin!
+    public-path: "//#{opt.host}:#{opt.port}/" # required when used with express, ref: https://webpack.github.io/docs/webpack-dev-server.html#combining-with-an-existing-server
+  plugins: # Additional plugins. ref: https://webpack.js.org/plugins/
     # Enables Hot Module Replacement
     * new webpack.HotModuleReplacementPlugin!
     # Stop compilation when there's any error or warning
-    * new webpack.NoErrorsPlugin!
+    * new webpack.NoEmitOnErrorsPlugin!
     # Automatically loaded modules. The keys are as variables corresponding to the modules.
     * new webpack.Provide-plugin $: \jquery jQuery: \jquery app: \app.ls
     # Generate html file. ref: https://www.npmjs.com/package/html-webpack-plugin
@@ -49,12 +47,13 @@ module.exports =
         inject: \body
         # template: path to template
         template: \app/index.pug
+    # stylus loader config. ref: https://github.com/shama/stylus-loader
+    * new webpack.LoaderOptionsPlugin do
+        test: /\.styl$/
+        stylus: default: import: <[~nib/lib/nib/index.styl]>, use: [nib!]
   resolve: # options for resolving module
     alias: # module alias
       jquery: \jquery/dist/jquery.min.js
-    modules-directories: <[app node_modules]> # directories that webpack search for modules
-  stylus: # stylus loader config. ref: https://github.com/shama/stylus-loader
-    import: <[~nib/lib/nib/index.styl]>
-    use: [nib!]
+    modules: <[app node_modules]> # directories that webpack search for modules
 
 # vi:et:nowrap:sw=2:ts=2

@@ -1,6 +1,6 @@
 # modules
-require 'semantic-ui/dist/semantic.min.js'
-require 'semantic-ui/dist/semantic.min.css'
+require 'semantic-ui-css/semantic.min.js'
+require 'semantic-ui-css/semantic.min.css'
 
 # our code
 require './app.styl'

@@ -4,19 +4,19 @@ Some explaination or references are shown in comments above the corresponding se
 
 # What's in this pack
   * tool
-	* webpack
-	* gulp
-	* bower
+    * webpack
+    * gulp
+    * bower
   * preprocessor
   	* pug
-	* stylus
-	* LiveScript
+    * stylus
+    * LiveScript
   * webserver
   	* express with webpack hot middleware and webpack dev middleware
-	* webpack-dev-server
+    * webpack-dev-server
   * frontend module
     * jQuery
-	* semantic-ui
+    * semantic-ui-css
 
 # setup
   * mkdir option/
@@ -24,15 +24,16 @@ Some explaination or references are shown in comments above the corresponding se
   * echo [your port number] > port
   * echo [your host name or ip] > host
   * cd ..
-  * npm i
+  * yarn (or npm i)
 
 # command
 
 ## run express + webpack middlewares
-  * npm start
+  * yarn start (or npm start)
+
 
 ## run webpack-dev-tool
-  * npm run dev # if you don't want to invoke gulp (pure front-end)
+  * yarn run dev (or npm run dev) # if you don't want to invoke gulp (pure front-end)
 
 ## build bundle files to disk
-  * npm run build
+  * yarn run build (or npm run build)
