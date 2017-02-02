@@ -4,9 +4,8 @@ Some explaination or references are shown in comments above the corresponding se
 
 # What's in this pack
   * tool
-    * webpack
+    * webpack 2
     * gulp
-    * bower
   * preprocessor
   	* pug
     * stylus
