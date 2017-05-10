@@ -15,6 +15,7 @@ Some explaination or references are shown in comments above the corresponding se
     * webpack-dev-server
   * frontend module
     * jQuery
+    * Bootstrap 4
     * semantic-ui-css
 
 # setup
