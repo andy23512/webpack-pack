@@ -1,9 +1,6 @@
-require! <[fs gulp webpack webpack-dev-server express webpack-dev-middleware webpack-hot-middleware]>
+require! <[gulp webpack webpack-dev-server express webpack-dev-middleware webpack-hot-middleware ./opt.ls]>
 
 gulp.task \server !->
-  # load port and host options
-  opt =
-    port: parseInt fs.read-file-sync \option/port encoding: \utf8
 
   # require webpack config
   config = require \./webpack.config.ls

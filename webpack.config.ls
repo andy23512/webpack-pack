@@ -1,9 +1,4 @@
-require! <[fs html-webpack-plugin nib webpack]>
-
-# read opt
-opt =
-  host: (fs.read-file-sync \option/host encoding: \utf8) - \\n
-  port: parseInt fs.read-file-sync \option/port encoding: \utf8
+require! <[html-webpack-plugin nib webpack ./opt.ls]>
 
 # ref: https://webpack.js.org/configuration/
 module.exports =
