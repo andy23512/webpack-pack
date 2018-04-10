@@ -6,7 +6,7 @@ module.exports =
     # content-base: folder that dev-server serve the file from
     content-base: \dist
     # host setting
-    host: \0.0.0.0
+    host: \localhost
     # inline mode (watch and build)
     inline: true
     hot: true
@@ -50,5 +50,6 @@ module.exports =
     alias: # module alias
       jquery: \jquery/dist/jquery.min.js
     modules: <[app node_modules]> # directories that webpack search for modules
+  mode: \development
 
 # vi:et:nowrap:sw=2:ts=2

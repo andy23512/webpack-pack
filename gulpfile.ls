@@ -42,6 +42,7 @@ gulp.task \server !->
 
   # start server at port
   app.listen opt.port
+  console.log "server running at port #{opt.port}"
 
 
 gulp.task \default <[server]>
