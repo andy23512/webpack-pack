@@ -45,6 +45,6 @@ gulp.task \server !->
   console.log "server running at port #{opt.port}"
 
 
-gulp.task \default <[server]>
+gulp.task \default gulp.series('server'), ->
 
 # vi:et:nowrap
