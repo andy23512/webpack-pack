@@ -14,7 +14,7 @@
     "file-loader": "^5.0.2",
     "gulp": "^4.0.2",
     "html-webpack-plugin": "^3.2.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "livescript": "^1.6.0",
     "livescript-loader": "^0.1.6",
     "nib": "^1.1.2",
